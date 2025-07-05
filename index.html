@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 Choco Games - Ultimate Gaming Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        @keyframes gradient-x {
+            0%, 100% { background-size: 200% 200%; background-position: left center; }
+            50% { background-size: 200% 200%; background-position: right center; }
+        }
+        
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slide-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes bounce-custom {
+            0%, 20%, 53%, 80%, 100% { transform: translateY(0); }
+            40%, 43% { transform: translateY(-10px); }
+            70% { transform: translateY(-5px); }
+            90% { transform: translateY(-2px); }
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(168, 85, 247, 0.8); }
+        }
+        
+        .animate-blob { animation: blob 7s infinite; }
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
+        .animate-shine { animation: shine 2s infinite; }
+        .animate-gradient-x { animation: gradient-x 3s ease infinite; }
+        .animate-fade-in { animation: fade-in 1s ease-out; }
+        .animate-fade-in-up { animation: fade-in-up 0.8s ease-out; }
+        .animate-slide-up { animation: slide-up 0.6s ease-out; }
+        .animate-bounce-custom { animation: bounce-custom 2s infinite; }
+        .animate-pulse-glow { animation: pulse-glow 2s infinite; }
+        .animation-delay-300 { animation-delay: 0.3s; }
+        .animation-delay-500 { animation-delay: 0.5s; }
+        .animation-delay-1000 { animation-delay: 1s; }
+        
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .game-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .game-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        .download-btn {
+            background: linear-gradient(45deg, #10b981, #3b82f6);
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            background: linear-gradient(45deg, #059669, #2563eb);
+            transform: scale(1.05);
+        }
+        
+        .feature-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .contact-card {
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
+    <!-- Animated Background -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-yellow-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div class="absolute top-40 left-40 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="relative z-10 bg-black/20 backdrop-blur-lg border-b border-white/10">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <!-- Choco Games Logo -->
+                    <div class="relative">
+                        <div class="w-12 h-12 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg animate-pulse-glow">
+                            🍫
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent rounded-full animate-shine"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent animate-pulse">
+                            Choco Games
+                        </h1>
+                        <p class="text-gray-300 text-sm animate-fade-in">Premium Gaming Experience</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-2 bg-green-500/20 px-3 py-1 rounded-full animate-bounce-custom">
+                        <div class="w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
+                        <span class="text-green-400 text-sm font-medium" id="downloadCounter">0 Downloads Today</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative z-10 py-20">
+        <div class="container mx-auto px-6 text-center">
+            <div class="animate-fade-in-up">
+                <h2 class="text-6xl font-bold mb-6 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 bg-clip-text text-transparent animate-gradient-x">
+                    🎮 Ultimate Gaming Hub 🎮
+                </h2>
+                <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto animate-fade-in-up animation-delay-500">
+                    Download the hottest games, discover new adventures, and join millions of gamers worldwide. 
+                    Your next gaming obsession awaits!
+                </p>
+                <div class="flex justify-center space-x-4 animate-fade-in-up animation-delay-1000">
+                    <div class="feature-card flex items-center space-x-2 bg-blue-500/20 px-4 py-2 rounded-full" onclick="showFeatureInfo('premium')">
+                        <span class="text-2xl animate-bounce">🏆</span>
+                        <span class="text-blue-300">Premium Quality</span>
+                    </div>
+                    <div class="feature-card flex items-center space-x-2 bg-green-500/20 px-4 py-2 rounded-full" onclick="showFeatureInfo('safe')">
+                        <span class="text-2xl animate-pulse">🛡️</span>
+                        <span class="text-green-300">100% Safe</span>
+                    </div>
+                    <div class="feature-card flex items-center space-x-2 bg-purple-500/20 px-4 py-2 rounded-full" onclick="showFeatureInfo('instant')">
+                        <span class="text-2xl animate-bounce">⚡</span>
+                        <span class="text-purple-300">Instant Download</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Game Carousel -->
+    <section class="relative z-10 py-16">
+        <div class="container mx-auto px-6">
+            <h3 class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent animate-pulse">
+                🔥 Featured Games 🔥
+            </h3>
+            <div class="relative max-w-4xl mx-auto">
+                <div class="bg-black/30 backdrop-blur-lg rounded-3xl overflow-hidden border border-white/10 shadow-2xl animate-fade-in" id="featuredGame">
+                    <!-- Featured game content will be populated by JavaScript -->
+                </div>
+                
+                <!-- Carousel Indicators -->
+                <div class="flex justify-center mt-6 space-x-2" id="carouselIndicators">
+                    <!-- Indicators will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Grid -->
+    <section class="relative z-10 py-16">
+        <div class="container mx-auto px-6">
+            <h3 class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent animate-pulse">
+                🎯 All Games 🎯
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="gamesGrid">
+                <!-- Games will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="relative z-10 py-20 bg-black/20 backdrop-blur-lg">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h3 class="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent animate-pulse">
+                    💬 Get In Touch 💬
+                </h3>
+                <p class="text-gray-300 text-lg animate-fade-in">
+                    Have questions, suggestions, or want to request a game? We'd love to hear from you!
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <div class="contact-card bg-blue-500/20 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-500 transform animate-fade-in-up group" onclick="handleEmailContact('general')">
+                    <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <span class="text-2xl animate-pulse">📧</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2 group-hover:text-purple-400 transition-colors duration-300">
+                        General Support
+                    </h4>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Get help with downloads, account issues, or general questions
+                    </p>
+                    <div class="flex items-center text-purple-400 text-sm font-semibold group-hover:text-purple-300 transition-colors duration-300">
+                        <span>Contact Now</span>
+                        <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+                    </div>
+                </div>
+
+                <div class="contact-card bg-green-500/20 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-500 transform animate-fade-in-up group animation-delay-300" onclick="handleEmailContact('games')">
+                    <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <span class="text-2xl animate-pulse">🎮</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2 group-hover:text-purple-400 transition-colors duration-300">
+                        Game Requests
+                    </h4>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Request your favorite games to be added to our platform
+                    </p>
+                    <div class="flex items-center text-purple-400 text-sm font-semibold group-hover:text-purple-300 transition-colors duration-300">
+                        <span>Contact Now</span>
+                        <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+                    </div>
+                </div>
+
+                <div class="contact-card bg-red-500/20 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-500 transform animate-fade-in-up group animation-delay-500" onclick="handleEmailContact('bugs')">
+                    <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <span class="text-2xl animate-pulse">🐛</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2 group-hover:text-purple-400 transition-colors duration-300">
+                        Bug Reports
+                    </h4>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Report technical issues or bugs you've encountered
+                    </p>
+                    <div class="flex items-center text-purple-400 text-sm font-semibold group-hover:text-purple-300 transition-colors duration-300">
+                        <span>Contact Now</span>
+                        <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+                    </div>
+                </div>
+
+                <div class="contact-card bg-purple-500/20 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-500 transform animate-fade-in-up group animation-delay-1000" onclick="handleEmailContact('business')">
+                    <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <span class="text-2xl animate-pulse">💼</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2 group-hover:text-purple-400 transition-colors duration-300">
+                        Business Inquiries
+                    </h4>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Partnership opportunities and business collaborations
+                    </p>
+                    <div class="flex items-center text-purple-400 text-sm font-semibold group-hover:text-purple-300 transition-colors duration-300">
+                        <span>Contact Now</span>
+                        <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Direct Gmail Contact -->
+            <div class="mt-12 text-center">
+                <div class="bg-gradient-to-r from-red-500/20 to-orange-500/20 backdrop-blur-lg rounded-2xl p-8 border border-red-500/20 max-w-2xl mx-auto animate-fade-in">
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center animate-bounce">
+                            <span class="text-3xl">📧</span>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-2">
+                        Direct Email Contact
+                    </h4>
+                    <p class="text-gray-300 mb-6">
+                        For immediate assistance, email us directly at:
+                    </p>
+                    <button onclick="handleEmailContact('general')" class="bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl animate-pulse-glow">
+                        📧 developerchocogames@gmail.com
+                    </button>
+                    <p class="text-gray-400 text-sm mt-4">
+                        Click to open Gmail and send us a message directly!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 bg-black/40 backdrop-blur-lg border-t border-white/10 py-12">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-4 mb-6">
+                    <div class="w-10 h-10 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold animate-pulse">
+                        🍫
+                    </div>
+                    <h4 class="text-2xl font-bold bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent">
+                        Choco Games
+                    </h4>
+                </div>
+                <p class="text-gray-400 mb-6 max-w-2xl mx-auto">
+                    Your ultimate destination for premium gaming experiences. Download, play, and enjoy the best games 
+                    from around the world, all in one place.
+                </p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <div class="flex items-center space-x-2 animate-fade-in">
+                        <span class="text-red-400 text-xl animate-pulse">❤️</span>
+                        <span class="text-gray-300 text-sm">Made with Love</span>
+                    </div>
+                    <div class="flex items-center space-x-2 animate-fade-in animation-delay-300">
+                        <span class="text-green-400 text-xl animate-pulse">🛡️</span>
+                        <span class="text-gray-300 text-sm">100% Safe</span>
+                    </div>
+                    <div class="flex items-center space-x-2 animate-fade-in animation-delay-500">
+                        <span class="text-yellow-400 text-xl animate-pulse">⚡</span>
+                        <span class="text-gray-300 text-sm">Lightning Fast</span>
+                    </div>
+                    <div class="flex items-center space-x-2 animate-fade-in animation-delay-1000">
+                        <span class="text-purple-400 text-xl animate-pulse">🏆</span>
+                        <span class="text-gray-300 text-sm">Premium Quality</span>
+                    </div>
+                </div>
+                <div class="border-t border-white/10 pt-6">
+                    <p class="text-gray-500 text-sm">
+                        © 2024 Choco Games. All rights reserved. | 
+                        <span class="text-purple-400 ml-1 animate-pulse">Happy Gaming! 🎮</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+        <div class="bg-black/80 backdrop-blur-lg rounded-2xl p-8 text-center border border-white/10">
+            <div class="w-16 h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <h4 class="text-white text-xl font-bold mb-2">Preparing Download...</h4>
+            <p class="text-gray-400">Redirecting to official download page</p>
+        </div>
+    </div>
+
+    <!-- Feature Info Modal -->
+    <div id="featureModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+        <div class="bg-black/90 backdrop-blur-lg rounded-2xl p-8 max-w-md mx-4 border border-white/20">
+            <div class="text-center">
+                <div id="featureIcon" class="text-6xl mb-4"></div>
+                <h3 id="featureTitle" class="text-2xl font-bold text-white mb-4"></h3>
+                <p id="featureDescription" class="text-gray-300 mb-6"></p>
+                <button onclick="closeFeatureModal()" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full hover:from-purple-600 hover:to-pink-600 transition-all duration-300">
+                    Got it! 👍
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Real downloadable games with actual working links and original thumbnails
+        const games = [
+            {
+                id: 1,
+                title: "Grand Theft Auto V",
+                description: "Experience the award-winning open-world action-adventure game that redefined gaming. Explore Los Santos and Blaine County with three unique protagonists in this epic crime saga.",
+                image: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg",
+                rating: 4.8,
+                downloads: "50M+",
+                size: "95 GB",
+                releaseDate: "2013",
+                genre: "Action/Adventure",
+                developer: "Rockstar Games",
+                downloadLink: "https://store.steampowered.com/app/271590/Grand_Theft_Auto_V/",
+                officialSite: "https://www.rockstargames.com/gta-v",
+                isFree: false,
+                price: "$29.99"
+            },
+            {
+                id: 2,
+                title: "Minecraft",
+                description: "Build, explore, and survive in infinite worlds. The ultimate sandbox game where creativity knows no bounds. Craft your adventure in blocky landscapes.",
+                image: "https://www.minecraft.net/content/dam/games/minecraft/key-art/Games_Subnav_Minecraft-300x465.jpg",
+                rating: 4.9,
+                downloads: "300M+",
+                size: "1 GB",
+                releaseDate: "2011",
+                genre: "Sandbox/Survival",
+                developer: "Mojang Studios",
+                downloadLink: "https://www.minecraft.net/en-us/download",
+                officialSite: "https://www.minecraft.net/",
+                isFree: false,
+                price: "$26.95"
+            },
+            {
+                id: 3,
+                title: "Fortnite",
+                description: "Jump into the ultimate battle royale experience. Build, fight, and be the last one standing in this free-to-play phenomenon that took the world by storm.",
+                image: "https://cdn2.unrealengine.com/fortnite-chapter-4-season-4-key-art-3840x2160-d35912cc5eca.jpg",
+                rating: 4.5,
+                downloads: "400M+",
+                size: "30 GB",
+                releaseDate: "2017",
+                genre: "Battle Royale",
+                developer: "Epic Games",
+                downloadLink: "https://www.epicgames.com/fortnite/en-US/download",
+                officialSite: "https://www.fortnite.com/",
+                isFree: true,
+                price: "FREE"
+            },
+            {
+                id: 4,
+                title: "Call of Duty: Warzone",
+                description: "Enter the ultimate free-to-play battle royale experience. Fight for survival in massive 150-player battles across Verdansk and Caldera.",
+                image: "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/warzone/common/social-share/wz-social-share.jpg",
+                rating: 4.3,
+                downloads: "100M+",
+                size: "175 GB",
+                releaseDate: "2020",
+                genre: "Battle Royale/FPS",
+                developer: "Infinity Ward",
+                downloadLink: "https://www.callofduty.com/warzone",
+                officialSite: "https://www.callofduty.com/",
+                isFree: true,
+                price: "FREE"
+            },
+            {
+                id: 5,
+                title: "Among Us",
+                description: "Work together to complete tasks, but beware of the imposters among your crew. The social deduction game that became a global phenomenon.",
+                image: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/945360/header.jpg",
+                rating: 4.2,
+                downloads: "500M+",
+                size: "250 MB",
+                releaseDate: "2018",
+                genre: "Social Deduction",
+                developer: "InnerSloth",
+                downloadLink: "https://store.steampowered.com/app/945360/Among_Us/",
+                officialSite: "https://www.innersloth.com/games/among-us/",
+                isFree: false,
+                price: "$4.99"
+            },
+            {
+                id: 6,
+                title: "Valorant",
+                description: "Blend your style and experience on a global, competitive stage. Valorant is a 5v5 character-based tactical FPS where precise gunplay meets unique agent abilities.",
+                image: "https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/8ab6dd242e0c1f6b0b1fdab7a85e6e0b8e4b8e4e-1920x1080.jpg",
+                rating: 4.6,
+                downloads: "15M+",
+                size: "23 GB",
+                releaseDate: "2020",
+                genre: "Tactical FPS",
+                developer: "Riot Games",
+                downloadLink: "https://playvalorant.com/en-us/download/",
+                officialSite: "https://playvalorant.com/",
+                isFree: true,
+                price: "FREE"
+            },
+            {
+                id: 7,
+                title: "Apex Legends",
+                description: "Choose from a diverse cast of Legends, each with their own unique abilities, and drop into the ever-evolving world of the Apex Games.",
+                image: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1172470/header.jpg",
+                rating: 4.4,
+                downloads: "100M+",
+                size: "75 GB",
+                releaseDate: "2019",
+                genre: "Battle Royale",
+                developer: "Respawn Entertainment",
+                downloadLink: "https://store.steampowered.com/app/1172470/Apex_Legends/",
+                officialSite: "https://www.ea.com/games/apex-legends",
+                isFree: true,
+                price: "FREE"
+            },
+            {
+                id: 8,
+                title: "Rocket League",
+                description: "Soccer meets driving in this physics-based multiplayer-focused sequel to Supersonic Acrobatic Rocket-Powered Battle-Cars!",
+                image: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/252950/header.jpg",
+                rating: 4.7,
+                downloads: "75M+",
+                size: "20 GB",
+                releaseDate: "2015",
+                genre: "Sports/Racing",
+                developer: "Psyonix",
+                downloadLink: "https://store.steampowered.com/app/252950/Rocket_League/",
+                officialSite: "https://www.rocketleague.com/",
+                isFree: true,
+                price: "FREE"
+            }
+        ];
+
+        let activeGame = 0;
+        let downloadCount = 0;
+
+        // Initialize the website
+        function init() {
+            renderFeaturedGame();
+            renderGamesGrid();
+            startCarousel();
+            updateDownloadCounter();
+        }
+
+        // Update download counter with animation
+        function updateDownloadCounter() {
+            const counter = document.getElementById('downloadCounter');
+            counter.textContent = `${downloadCount} Downloads Today`;
+            counter.classList.add('animate-bounce');
+            setTimeout(() => {
+                counter.classList.remove('animate-bounce');
+            }, 1000);
+        }
+
+        // Show feature information
+        function showFeatureInfo(feature) {
+            const modal = document.getElementById('featureModal');
+            const icon = document.getElementById('featureIcon');
+            const title = document.getElementById('featureTitle');
+            const description = document.getElementById('featureDescription');
+
+            const features = {
+                premium: {
+                    icon: '🏆',
+                    title: 'Premium Quality Games',
+                    description: 'We only feature the highest quality games from top developers. Every game is carefully selected and tested to ensure the best gaming experience for our users.'
+                },
+                safe: {
+                    icon: '🛡️',
+                    title: '100% Safe Downloads',
+                    description: 'All our download links are verified and secure. We redirect you to official stores and trusted sources only. Your safety and security are our top priorities.'
+                },
+                instant: {
+                    icon: '⚡',
+                    title: 'Instant Download Access',
+                    description: 'No waiting, no delays! Click download and get instant access to official game pages. Start playing your favorite games within minutes!'
+                }
+            };
+
+            const info = features[feature];
+            icon.textContent = info.icon;
+            title.textContent = info.title;
+            description.textContent = info.description;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('animate-fade-in');
+        }
+
+        // Close feature modal
+        function closeFeatureModal() {
+            const modal = document.getElementById('featureModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('animate-fade-in');
+        }
+
+        // Render featured game
+        function renderFeaturedGame() {
+            const game = games[activeGame];
+            const featuredGameElement = document.getElementById('featuredGame');
+            
+            featuredGameElement.innerHTML = `
+                <div class="relative h-96 overflow-hidden">
+                    <img src="${game.image}" alt="${game.title}" class="w-full h-full object-cover transition-all duration-1000 transform hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    <div class="absolute top-4 right-4">
+                        <div class="bg-${game.isFree ? 'green' : 'blue'}-500 text-white px-3 py-1 rounded-full text-sm font-bold animate-pulse">
+                            ${game.price}
+                        </div>
+                    </div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <h4 class="text-3xl font-bold text-white mb-2 animate-slide-up">${game.title}</h4>
+                        <p class="text-gray-300 mb-4 animate-slide-up animation-delay-300">${game.description}</p>
+                        <div class="flex items-center space-x-4 animate-slide-up animation-delay-500">
+                            <div class="flex items-center space-x-1">
+                                <span class="text-yellow-400 text-xl animate-pulse">⭐</span>
+                                <span class="text-white font-semibold">${game.rating}</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <span class="text-green-400 text-xl animate-bounce">📥</span>
+                                <span class="text-white">${game.downloads}</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <span class="text-blue-400 text-xl animate-pulse">⏱️</span>
+                                <span class="text-white">${game.size}</span>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <button onclick="handleDownload('${game.downloadLink}', '${game.title}')" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold hover:from-purple-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
+                                <span class="text-lg animate-bounce">🎮</span>
+                                <span>${game.isFree ? 'Play Free Now' : 'Get Game'}</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            renderCarouselIndicators();
+        }
+
+        // Render carousel indicators
+        function renderCarouselIndicators() {
+            const indicatorsElement = document.getElementById('carouselIndicators');
+            indicatorsElement.innerHTML = games.map((_, index) => `
+                <button onclick="setActiveGame(${index})" class="w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === activeGame 
+                        ? 'bg-purple-500 scale-125 animate-pulse' 
+                        : 'bg-gray-600 hover:bg-gray-500'
+                }"></button>
+            `).join('');
+        }
+
+        // Set active game
+        function setActiveGame(index) {
+            activeGame = index;
+            renderFeaturedGame();
+        }
+
+        // Start carousel
+        function startCarousel() {
+            setInterval(() => {
+                activeGame = (activeGame + 1) % games.length;
+                renderFeaturedGame();
+            }, 5000);
+        }
+
+        // Render games grid
+        function renderGamesGrid() {
+            const gamesGridElement = document.getElementById('gamesGrid');
+            gamesGridElement.innerHTML = games.map((game, index) => `
+                <div class="game-card bg-black/30 backdrop-blur-lg rounded-2xl overflow-hidden border border-white/10 shadow-xl animate-fade-in-up group" style="animation-delay: ${index * 200}ms">
+                    <div class="relative overflow-hidden">
+                        <img src="${game.image}" alt="${game.title}" class="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute top-4 right-4">
+                            <div class="bg-${game.isFree ? 'green' : 'blue'}-500 text-white px-2 py-1 rounded-full text-xs font-bold animate-pulse">
+                                ${game.price}
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button onclick="handleDownload('${game.downloadLink}', '${game.title}')" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full font-semibold hover:from-purple-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
+                                <span class="text-lg animate-bounce">▶️</span>
+                                <span>${game.isFree ? 'Play Free' : 'Get Game'}</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors duration-300">
+                            ${game.title}
+                        </h4>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">
+                            ${game.description}
+                        </p>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-1">
+                                <span class="text-yellow-400 text-lg animate-pulse">⭐</span>
+                                <span class="text-white text-sm font-semibold">${game.rating}</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <span class="text-blue-400 text-lg animate-pulse">👥</span>
+                                <span class="text-gray-300 text-sm">${game.downloads}</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between text-sm text-gray-400 mb-4">
+                            <span class="flex items-center space-x-1">
+                                <span class="text-lg">📅</span>
+                                <span>${game.releaseDate}</span>
+                            </span>
+                            <span class="bg-purple-500/20 text-purple-300 px-2 py-1 rounded-full text-xs">
+                                ${game.genre}
+                            </span>
+                        </div>
+                        
+                        <div class="flex space-x-2">
+                            <button onclick="handleDownload('${game.downloadLink}', '${game.title}')" class="download-btn flex-1 text-white py-2 px-4 rounded-lg font-semibold flex items-center justify-center space-x-2">
+                                <span class="text-lg animate-bounce">📥</span>
+                                <span>${game.isFree ? 'Download Free' : 'Get Game'}</span>
+                            </button>
+                            <button onclick="handleExternalLink('${game.officialSite}')" class="bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105">
+                                <span class="text-lg">🔗</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Handle download with proper tracking and redirect
+        function handleDownload(downloadLink, gameTitle) {
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            loadingOverlay.classList.remove('hidden');
+            
+            // Increment download counter
+            downloadCount++;
+            updateDownloadCounter();
+            
+            // Show loading for 2 seconds then redirect
+            setTimeout(() => {
+                loadingOverlay.classList.add('hidden');
+                // Open the actual download link in new tab
+                window.open(downloadLink, '_blank');
+                
+                // Show success message
+                showNotification(`🎮 Redirecting to ${gameTitle} download page!`, 'success');
+            }, 2000);
+        }
+
+        // Handle external link
+        function handleExternalLink(url) {
+            window.open(url, '_blank');
+            showNotification('🔗 Opening official website!', 'info');
+        }
+
+        // Handle email contact with proper Gmail redirect
+        function handleEmailContact(category) {
+            const subjects = {
+                general: 'General Inquiry - Choco Games',
+                games: 'Game Request - Choco Games',
+                bugs: 'Bug Report - Choco Games',
+                business: 'Business Inquiry - Choco Games'
+            };
+            
+            const bodies = {
+                general: 'Hello Choco Games Team,\n\nI hope this email finds you well. I wanted to reach out regarding...\n\nBest regards,',
+                games: 'Hello Choco Games Team,\n\nI would like to request the following game to be added to your platform:\n\nGame Name: \nReason: \n\nThank you for your consideration!\n\nBest regards,',
+                bugs: 'Hello Choco Games Team,\n\nI encountered a technical issue and would like to report it:\n\nIssue Description: \nSteps to Reproduce: \nDevice/Browser: \n\nThank you for your attention to this matter.\n\nBest regards,',
+                business: 'Hello Choco Games Team,\n\nI am interested in discussing a potential business opportunity:\n\nCompany: \nProposal: \nContact Information: \n\nI look forward to hearing from you.\n\nBest regards,'
+            };
+
+            // Create proper Gmail compose URL
+            const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=developerchocogames@gmail.com&su=${encodeURIComponent(subjects[category])}&body=${encodeURIComponent(bodies[category])}`;
+            
+            // Open Gmail in new tab
+            window.open(gmailComposeUrl, '_blank');
+            
+            // Show confirmation
+            showNotification('📧 Opening Gmail to send message!', 'success');
+        }
+
+        // Show notification
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 z-50 px-6 py-3 rounded-lg text-white font-semibold animate-fade-in ${
+                type === 'success' ? 'bg-green-500' : 
+                type === 'error' ? 'bg-red-500' : 
+                'bg-blue-500'
+            }`;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('featureModal');
+            if (event.target === modal) {
+                closeFeatureModal();
+            }
+        });
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
